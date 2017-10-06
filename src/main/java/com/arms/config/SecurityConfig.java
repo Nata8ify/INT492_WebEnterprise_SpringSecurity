@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/static/**").permitAll()
 		.anyRequest().authenticated()
 		.and()
-		.formLogin().loginPage("/login").permitAll()
+		.formLogin().loginPage("/login").permitAll().usernameParameter("email")
 		.and()
 		.logout().permitAll();
 	}
