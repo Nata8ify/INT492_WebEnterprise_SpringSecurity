@@ -11,6 +11,7 @@ spring:
     database: MYSQL
     show-sql: true
     hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate.ddl-auto: update
   thymeleaf:
     mode: LEGACYHTML5
     cache: false
