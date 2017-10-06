@@ -7,13 +7,18 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import com.arms.domain.service.UserAuthenticationService;
+
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
+	
 	@Autowired
-	public void configureInMemory(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-		.inMemoryAuthentication().withUser("user").password("123").roles("USER");
+	UserAuthenticationService userAuth;
+	
+	@Autowired
+	public void configureUserAuth(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userAuth);
 	}
 
 	@Override
