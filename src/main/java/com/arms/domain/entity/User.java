@@ -1,4 +1,4 @@
-package com.arms.entity;
+package com.arms.domain.entity;
 
 import java.util.HashSet;
 import java.util.Set;
